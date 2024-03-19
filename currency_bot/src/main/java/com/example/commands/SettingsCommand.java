@@ -1,9 +1,9 @@
 package com.example.commands;
 
-import com.example.commands.settings.Bank;
-import com.example.commands.settings.Currencies;
-import com.example.commands.settings.DigitCount;
-import com.example.commands.settings.MessageTime;
+import com.example.commands.settings.BankCommand;
+import com.example.commands.settings.CurrenciesCommand;
+import com.example.commands.settings.DigitCountCommand;
+import com.example.commands.settings.MessageTimeCommand;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Settings implements Command {
+public class SettingsCommand implements Command {
     public static final String COMMAND_NAME = "/settings";
     private static final String BUTTON_TEXT = "Налаштування";
 
@@ -25,10 +25,10 @@ public class Settings implements Command {
 
     private List<List<InlineKeyboardButton>> getKeyboard() {
         List<List<InlineKeyboardButton>> keyboard = new ArrayList<>();
-        keyboard.add(new DigitCount().getButtons());
-        keyboard.add(new Bank().getButtons());
-        keyboard.add(new Currencies().getButtons());
-        keyboard.add(new MessageTime().getButtons());
+        keyboard.add(new DigitCountCommand().getButtons());
+        keyboard.add(new BankCommand().getButtons());
+        keyboard.add(new CurrenciesCommand().getButtons());
+        keyboard.add(new MessageTimeCommand().getButtons());
         return keyboard;
     }
 

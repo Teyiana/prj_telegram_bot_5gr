@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Currencies implements Command {
+public class CurrenciesCommand implements Command {
     public static final String COMMAND_NAME = "/currencies";
     public static final String BUTTON_TEXT = "Валюта";
     private static final String CURRENCY_ARG = "?currency=";

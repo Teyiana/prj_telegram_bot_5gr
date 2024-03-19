@@ -1,9 +1,9 @@
 package com.example.commands;
 
-import com.example.commands.settings.Bank;
-import com.example.commands.settings.Currencies;
-import com.example.commands.settings.DigitCount;
-import com.example.commands.settings.MessageTime;
+import com.example.commands.settings.BankCommand;
+import com.example.commands.settings.CurrenciesCommand;
+import com.example.commands.settings.DigitCountCommand;
+import com.example.commands.settings.MessageTimeCommand;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,13 +23,13 @@ public class CommandRegistry {
 
     private void init() {
         registry = new HashMap<>();
-        registry.put(Start.COMMAND_NAME, new Start());
-        registry.put(GetInfo.COMMAND_NAME, new GetInfo());
-        registry.put(Settings.COMMAND_NAME, new Settings());
-        registry.put(DigitCount.COMMAND_NAME, new DigitCount());
-        registry.put(Bank.COMMAND_NAME, new Bank());
-        registry.put(Currencies.COMMAND_NAME, new Currencies());
-        registry.put(MessageTime.COMMAND_NAME, new MessageTime());
+        registry.put(StartCommand.COMMAND_NAME, new StartCommand());
+        registry.put(GetInfoCommand.COMMAND_NAME, new GetInfoCommand());
+        registry.put(SettingsCommand.COMMAND_NAME, new SettingsCommand());
+        registry.put(DigitCountCommand.COMMAND_NAME, new DigitCountCommand());
+        registry.put(BankCommand.COMMAND_NAME, new BankCommand());
+        registry.put(CurrenciesCommand.COMMAND_NAME, new CurrenciesCommand());
+        registry.put(MessageTimeCommand.COMMAND_NAME, new MessageTimeCommand());
     }
 
     public Command getCommand(String cmd) {

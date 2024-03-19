@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Start implements Command {
+public class StartCommand implements Command {
     public static final String COMMAND_NAME = "/start";
 
     public static final String GREETINGS_TEXT = "Ласкаво просимо. Цей бот допоможе відслідковувати актуальні курси валют";
@@ -28,8 +28,8 @@ public class Start implements Command {
 
     private List<List<InlineKeyboardButton>> getKeyboard() {
         List<List<InlineKeyboardButton>> keyboard = new ArrayList<>();
-        keyboard.add(new GetInfo().getButtons());
-        keyboard.add(new Settings().getButtons());
+        keyboard.add(new GetInfoCommand().getButtons());
+        keyboard.add(new SettingsCommand().getButtons());
         return keyboard;
     }
 }

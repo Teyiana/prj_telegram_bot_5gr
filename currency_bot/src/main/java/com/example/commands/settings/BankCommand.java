@@ -11,52 +11,44 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
-public class DigitCount implements Command {
-    public static final String COMMAND_NAME = "/digitCount";
-    public static final String BUTTON_TEXT = "Кількість знаків після коми";
-    private static final String NUMBER_ARG = "?number=";
+public class BankCommand implements Command {
+    public static final String COMMAND_NAME = "/bank";
+    public static final String BUTTON_TEXT = "Банк";
+    private static final String BANK_ARG = "?bank=";
 
     @Override
     public void execute(String chatId, String message, SendMessage.SendMessageBuilder builder) {
         ChatConfig config = ConfigManager.getChatConfig(chatId);
-        if (message.contains(NUMBER_ARG)){
-            String number = message.substring(message.indexOf(NUMBER_ARG) + NUMBER_ARG.length()).trim();
-            int n = parseNumber(number);
-            if (n > 0) {
-                config.setDigitCount(n);
+        if (message.contains(BANK_ARG)) {
+            String bank = message.substring(message.indexOf(BANK_ARG) + BANK_ARG.length()).trim();
+            if (!Objects.equals(bank, config.getSelectedBank())) {
+                config.setSelectedBank(bank);
             }
         }
         builder.text(BUTTON_TEXT);
         builder.replyMarkup(InlineKeyboardMarkup.builder().keyboard(getKeyboard(config)).build());
         builder.chatId(chatId);
-    }
 
-    private int parseNumber(String number) {
-        try {
-            return Integer.parseInt(number);
-        } catch (NumberFormatException nfe){
-            nfe.printStackTrace();
-            return -1;
-        }
     }
 
     private List<List<InlineKeyboardButton>> getKeyboard(ChatConfig config) {
         List<List<InlineKeyboardButton>> keyboard = new ArrayList<>();
-        keyboard.add(createDigitButton(2, config));
-        keyboard.add(createDigitButton(3, config));
-        keyboard.add(createDigitButton(4, config));
+        keyboard.add(createBankButton("НБУ", config));
+        keyboard.add(createBankButton("ПриватБанк", config));
+        keyboard.add(createBankButton("Монобанк", config));
         return keyboard;
     }
 
-    private List<InlineKeyboardButton> createDigitButton(int number, ChatConfig config) {
+    private List<InlineKeyboardButton> createBankButton(String bank, ChatConfig config) {
         InlineKeyboardButton button = new InlineKeyboardButton();
-        String text = String.valueOf(number);
-        if (config.getDigitCount() == number) {
+        String text = bank;
+        if (Objects.equals(bank, config.getSelectedBank())) {
             text += " " + EmojiParser.parseToUnicode(":white_check_mark:");
         }
         button.setText(text);
-        button.setCallbackData(COMMAND_NAME + NUMBER_ARG + number);
+        button.setCallbackData(COMMAND_NAME + BANK_ARG + bank);
         return Collections.singletonList(button);
     }
 
