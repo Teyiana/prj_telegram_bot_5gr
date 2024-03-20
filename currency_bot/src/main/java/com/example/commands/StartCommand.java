@@ -26,7 +26,7 @@ public class StartCommand implements Command {
     }
 
 
-    private List<List<InlineKeyboardButton>> getKeyboard() {
+    public static List<List<InlineKeyboardButton>> getKeyboard() {
         List<List<InlineKeyboardButton>> keyboard = new ArrayList<>();
         keyboard.add(new GetInfoCommand().getButtons());
         keyboard.add(new SettingsCommand().getButtons());
