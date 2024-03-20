@@ -13,6 +13,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+import static com.example.CurrencyBotConstance.EMOJI_CHECKED;
+
 public class BankCommand implements Command {
     public static final String COMMAND_NAME = "/bank";
     public static final String BUTTON_TEXT = "Банк";
@@ -45,7 +47,7 @@ public class BankCommand implements Command {
         InlineKeyboardButton button = new InlineKeyboardButton();
         String text = bank;
         if (Objects.equals(bank, config.getSelectedBank())) {
-            text += " " + EmojiParser.parseToUnicode(":white_check_mark:");
+            text += " " + EmojiParser.parseToUnicode(EMOJI_CHECKED);
         }
         button.setText(text);
         button.setCallbackData(COMMAND_NAME + BANK_ARG + bank);

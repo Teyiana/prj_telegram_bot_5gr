@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
 public class DigitCountCommand implements Command {
     public static final String COMMAND_NAME = "/digitCount";
     public static final String BUTTON_TEXT = "Кількість знаків після коми";

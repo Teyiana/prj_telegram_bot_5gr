@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static com.example.CurrencyBotConstance.*;
+
 public class CurrenciesCommand implements Command {
     public static final String COMMAND_NAME = "/currencies";
     public static final String BUTTON_TEXT = "Валюта";
@@ -21,7 +23,8 @@ public class CurrenciesCommand implements Command {
     public void execute(String chatId, String message, SendMessage.SendMessageBuilder builder) {
         ChatConfig config = ConfigManager.getChatConfig(chatId);
         if (message.contains(CURRENCY_ARG)) {
-            String currency = message.substring(message.indexOf(CURRENCY_ARG) + CURRENCY_ARG.length()).trim();
+            String currencyName = message.substring(message.indexOf(CURRENCY_ARG) + CURRENCY_ARG.length()).trim();
+            Currency currency = Currency.valueOf(currencyName);
             if (config.getSelectedCurrencies().contains(currency)) {
                 config.getSelectedCurrencies().remove(currency);
             } else {
@@ -35,17 +38,18 @@ public class CurrenciesCommand implements Command {
 
     private List<List<InlineKeyboardButton>> getKeyboard(ChatConfig config) {
         List<List<InlineKeyboardButton>> keyboard = new ArrayList<>();
-        keyboard.add(createCurrencyButton("USD", config));
-        keyboard.add(createCurrencyButton("EUR", config));
+        keyboard.add(createCurrencyButton(Currency.USD, config));
+        keyboard.add(createCurrencyButton(Currency.EUR, config));
         return keyboard;
     }
 
-    private List<InlineKeyboardButton> createCurrencyButton(String currency, ChatConfig config) {
+    private List<InlineKeyboardButton> createCurrencyButton(Currency currency, ChatConfig config) {
         InlineKeyboardButton button = new InlineKeyboardButton();
-        String text = currency;
+        String text = currency.getEmoji() + currency.getValue();
         if (config.getSelectedCurrencies().contains(currency)) {
-            text += " " + EmojiParser.parseToUnicode(":white_check_mark:");
+            text += " " + EmojiParser.parseToUnicode(EMOJI_CHECKED);
         }
+
         button.setText(text);
         button.setCallbackData(COMMAND_NAME + CURRENCY_ARG + currency);
         return Collections.singletonList(button);
