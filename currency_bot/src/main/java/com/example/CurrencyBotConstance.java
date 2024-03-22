@@ -1,8 +1,8 @@
 package com.example;
 
 public class CurrencyBotConstance {
-    public static final String BOT_NAME = "Currency_Exchan_Bot";
-    public static final String BOT_TOKEN = "!token!";
+    public static final String BOT_NAME = "GoITJavaLPCurrencyBot";
+    public static final String BOT_TOKEN = "6165759381:AAFjcxzg9JkRrmDAsN-ixe1TxqkmVjHmyeo";
 
     public static final String EMOJI_CHECKED = ":white_check_mark:";
     public static final String EMOJI_SETTINGS = ":gear:";
