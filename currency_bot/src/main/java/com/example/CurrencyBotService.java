@@ -27,9 +27,11 @@ public class CurrencyBotService extends TelegramLongPollingBot {
     private static int bank_priz = 0;
     private static int sign_priz = 0;
     private static int cash_priz = 0;
+    private static int time_priz = 0;
     private static int bankId;
     private  static int signId;
     private static String cashId;
+    private  static int timeId;
 
     private CurrencyService currencyService;
     private PrettyCurrencyService prettyCurrencyService;
@@ -67,13 +69,16 @@ public class CurrencyBotService extends TelegramLongPollingBot {
             bankId = 1;       // значення за замовчуванням
             signId = 2;       // значення за замовчуванням
             cashId = "USD";   // значення за замовчуванням
+            timeId = 0;       // значення за замовчуванням
 
         } else if (message.equals("/bank")) {
             bank_priz = 1;
         } else if (message.equals("/currencies")) {
             cash_priz = 1;
         } else if (message.equals("/digitCount")) {
-                sign_priz = 1;
+             sign_priz = 1;
+        } else if (message.equals("/messageTime")) {
+            time_priz = 1;
         }
 
         if (message.equals("/getInfo")) {
@@ -99,6 +104,13 @@ public class CurrencyBotService extends TelegramLongPollingBot {
                 //------------------------- валюта
                 cashs = config.getSelectedCurrencies();
             }
+
+            if (time_priz != 0) {
+                //------------------------- відсрочення
+                timeId = Integer.valueOf(config.getSelectedHour().getHour());
+            }
+
+
 
         if (cash_priz == 0) {
             read(chatId);
