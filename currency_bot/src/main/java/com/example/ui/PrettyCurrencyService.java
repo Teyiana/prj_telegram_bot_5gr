@@ -5,8 +5,6 @@ import com.example.currencyPackage.CurrencyBank;
 import java.math.BigDecimal;
 
 public class PrettyCurrencyService {
-    // rate - кількість
-    // currency - назва валюти (USD)
 
     // priz = 0 - 1 строка message
     // priz = 1 - 3 строка message (продаж)
@@ -20,43 +18,43 @@ public class PrettyCurrencyService {
     // prettyId = 3
     // prettyId = 4
 
-    private String bankName = "";
+
     private BigDecimal roundedRate;
-    private  String template = "";
+    private String template = "";
+    private String bankName = "";
 
-    private void createBankName (int bankId) {
-        String bankName = "";
-        if (bankId == 1) {
-            bankName = "у Приватбанку";
-        } else if (bankId == 2) {
-            bankName = "у НБУ";
-        } else {
-            bankName = "у Монобанку";
-        }
-    }
 
-    private void createRoundRate(double rate,int prettyId) {
+    private void createRoundRate(double rate,int signId) {
         roundedRate = new BigDecimal(rate);
-        roundedRate = roundedRate.setScale(prettyId, BigDecimal.ROUND_DOWN);
+        roundedRate = roundedRate.setScale(signId, BigDecimal.ROUND_DOWN);
     }
 
-    public  String convert(double rate, CurrencyBank currency, int priz, int bankId, int prettyId) {
+    public  String convert(double rate, CurrencyBank currency, int priz, int bankId, int signId) {
 
         if (priz == 0) {
-            createBankName(bankId);
+            bankName = "";
+
+            if (bankId == 1) {
+                bankName = "у Приватбанку";
+            } else if (bankId == 2) {
+                bankName = "у НБУ";
+            } else {
+                bankName = "у Монобанку";
+            }
+
             template = "Курс " + bankName + " ${currency} / UAH";
             return template
                     .replace("${currency}", currency.name());
 
         } else if (priz == 2) {
             template = "Купівля: ${rate}";
-            createRoundRate(rate, prettyId);
+            createRoundRate(rate, signId);
             return template
                     .replace("${rate}", roundedRate + "");
 
         } else {
             template = "Продаж ${rate}";
-            createRoundRate(rate, prettyId);
+            createRoundRate(rate, signId);
             return template
                     .replace("${rate}", roundedRate + "");
 

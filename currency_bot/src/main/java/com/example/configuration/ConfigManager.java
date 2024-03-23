@@ -35,30 +35,4 @@ public class ConfigManager {
     }
 
 
-    private void vvv() {
-       // String message = "/getInfo";
-
-     //   if (message.equals("/getInfo")) {
-
-            // if (bankId == 1) {
-            CurrencyService currencyService = new PrivateBankCurrencyService();
-            //   } else if (bankId == 2) {
-            //   CurrencyService currencyService = new NBUCurrencyService();
-            //   } else {
-            //    CurrencyService currencyService = new MonoCurrencyService();
-            //  }
-            String cash = "USD";
-            int prettyId = 3;
-
-            CurrencyBank currency = CurrencyBank.valueOf(cash);
-            for (int i = 1; i <= 2; i++) {
-                double currencyRate = currencyService.getRateBuy(currency, i);
-                BigDecimal roundedRate = new BigDecimal(currencyRate);
-                roundedRate = roundedRate.setScale(prettyId, BigDecimal.ROUND_DOWN);
-
-                System.out.println("USD= " + currencyRate + "=" + roundedRate);
-            }
-      //  }
-    }
-
 }
