@@ -21,6 +21,4 @@ public enum Currency {
     public String getValue() {
         return value;
     }
-
-
 }
