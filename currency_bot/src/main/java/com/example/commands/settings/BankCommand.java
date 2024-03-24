@@ -1,57 +1,29 @@
 package com.example.commands.settings;
 
-import com.example.commands.Command;
+import com.example.commands.SendCommand;
+import com.example.commands.settings.set.BankSetCommand;
 import com.example.configuration.ChatConfig;
-import com.example.configuration.ConfigManager;
-import com.vdurmont.emoji.EmojiParser;
+import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
-import static com.example.CurrencyBotConstance.EMOJI_CHECKED;
+//Команда що виконується на запит "/setBank"
+//Створює клавіатуру з кнопками вибору банку
+public class BankCommand extends BankSetCommand implements SendCommand {
 
-public class BankCommand implements Command {
     public static final String COMMAND_NAME = "/bank";
     public static final String BUTTON_TEXT = "Банк";
-    private static final String BANK_ARG = "?bank=";
 
     @Override
-    public void execute(String chatId, String message, SendMessage.SendMessageBuilder builder) {
-        ChatConfig config = ConfigManager.getChatConfig(chatId);
-        if (message.contains(BANK_ARG)) {
-            String bank = message.substring(message.indexOf(BANK_ARG) + BANK_ARG.length()).trim();
-            if (!Objects.equals(bank, config.getSelectedBank())) {
-                config.setSelectedBank(bank);
-            }
-        }
+    public BotApiMethod<?> execute(ChatConfig config, String message, Integer messageId) {
+        SendMessage.SendMessageBuilder builder = createSendMethodBuilder(config.getChatId());
         builder.text(BUTTON_TEXT);
         builder.replyMarkup(InlineKeyboardMarkup.builder().keyboard(getKeyboard(config)).build());
-        builder.chatId(chatId);
-
-    }
-
-    private List<List<InlineKeyboardButton>> getKeyboard(ChatConfig config) {
-        List<List<InlineKeyboardButton>> keyboard = new ArrayList<>();
-        keyboard.add(createBankButton("НБУ", config));
-        keyboard.add(createBankButton("ПриватБанк", config));
-        keyboard.add(createBankButton("Монобанк", config));
-        return keyboard;
-    }
-
-    private List<InlineKeyboardButton> createBankButton(String bank, ChatConfig config) {
-        InlineKeyboardButton button = new InlineKeyboardButton();
-        String text = bank;
-        if (Objects.equals(bank, config.getSelectedBank())) {
-            text += " " + EmojiParser.parseToUnicode(EMOJI_CHECKED);
-        }
-        button.setText(text);
-        button.setCallbackData(COMMAND_NAME + BANK_ARG + bank);
-        return Collections.singletonList(button);
+        return builder.build();
     }
 
     @Override
