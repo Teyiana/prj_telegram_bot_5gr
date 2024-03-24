@@ -2,7 +2,7 @@ package com.example;
 
 public class CurrencyBotConstance {
     public static final String BOT_NAME = "Currency_Exchan_Bot";
-    public static final String BOT_TOKEN = "7153120047:AAEu1mvuiXPqs9rBxfqicGuhwhXWh6pMUGU";
+    public static final String BOT_TOKEN = "token";
 
     public static final String EMOJI_CHECKED = "\u2705";
     public static final String EMOJI_SETTINGS = "\u2699\uFE0F";
