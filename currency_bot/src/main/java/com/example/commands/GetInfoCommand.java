@@ -29,7 +29,7 @@ public class GetInfoCommand implements SendCommand {
         return builder.build();
     }
 
-    private String getCurrencyRateText(ChatConfig config) {
+    public String getCurrencyRateText(ChatConfig config) {
         BankService service = BankService.getInstance();
         List<CurrencyRates> rates = service.getCurrencyRates(Collections.singletonList(config)).get(config);
         StringBuilder sb = new StringBuilder();
