@@ -17,9 +17,17 @@ public class CurrencyBotService extends TelegramLongPollingBot {
 
     private static final String COMMAND_NOT_FOUND = "Вибачте, команду не знайдено!\nСпробуйте знову";
     private final CommandRegistry commandRegistry;
+
+
+    private static  CurrencyBotService instance;
     public CurrencyBotService() {
         super(BOT_TOKEN);
         commandRegistry = CommandRegistry.getRegistry();
+        instance = this;
+    }
+
+    public static CurrencyBotService getInstance() {
+        return instance;
     }
 
     @Override

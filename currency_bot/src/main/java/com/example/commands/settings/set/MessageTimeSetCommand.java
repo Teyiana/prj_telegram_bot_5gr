@@ -4,6 +4,7 @@ import com.example.commands.EditCommand;
 import com.example.commands.SettingsCommand;
 import com.example.configuration.Hours;
 import com.example.configuration.ChatConfig;
+import com.example.configuration.NotificationScheduler;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -34,6 +35,8 @@ public class MessageTimeSetCommand implements EditCommand {
         }
         builder.text(BUTTON_TEXT);
         builder.replyMarkup(InlineKeyboardMarkup.builder().keyboard(getKeyboard(config)).build());
+        NotificationScheduler notificationScheduler = new NotificationScheduler(config,message);
+        notificationScheduler.startScheduler();
         return builder.build();
     }
 
