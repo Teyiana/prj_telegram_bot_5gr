@@ -15,13 +15,15 @@ import java.util.TimerTask;
 public class NotificationScheduler implements SendCommand {
     private final ChatConfig chatConfig ;
 
-    private String message;
+    //private String message;
 
     private final Timer timer;
 
-    public NotificationScheduler( ChatConfig chatConfig, String message) {
+    // передавався параметр String message
+    // TODO:
+    public NotificationScheduler( ChatConfig chatConfig) {
 
-        this.message = message;
+        //this.message = message;
 
         this.chatConfig = chatConfig;
         this.timer = new Timer();
@@ -75,6 +77,7 @@ public class NotificationScheduler implements SendCommand {
         timer.cancel();
     }
 
+    // TODO:
     @Override
     public BotApiMethod<?> execute(ChatConfig config, String message, Integer messageId) {
         return null;

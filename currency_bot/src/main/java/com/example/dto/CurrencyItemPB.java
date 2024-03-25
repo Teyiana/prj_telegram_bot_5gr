@@ -12,33 +12,37 @@ public class CurrencyItemPB {
         return ccy;
     }
 
-    public void setCcy(CurrencyBank ccy) {
-        this.ccy = ccy;
-    }
+    // useless method
+//    public void setCcy(CurrencyBank ccy) {
+//        this.ccy = ccy;
+//    }
 
     public CurrencyBank getBase_ccy() {
         return base_ccy;
     }
 
-    public void setBase_ccy(CurrencyBank base_ccy) {
-        this.base_ccy = base_ccy;
-    }
+    // useless method
+//    public void setBase_ccy(CurrencyBank base_ccy) {
+//        this.base_ccy = base_ccy;
+//    }
 
     public float getBuy() {
         return buy;
     }
 
-    public void setBuy(float buy) {
-        this.buy = buy;
-    }
+    // useless method
+//    public void setBuy(float buy) {
+//        this.buy = buy;
+//    }
 
     public float getSale() {
         return sale;
     }
 
-    public void setSale(float sale) {
-        this.sale = sale;
-    }
+    // useless method
+//    public void setSale(float sale) {
+//        this.sale = sale;
+//    }
 
 
 }

@@ -13,6 +13,8 @@ import java.util.List;
 //Команда що виконується на запит "/start"
 public class StartCommand implements SendCommand {
 
+    // TODO:
+    // Потрібно, щоб була якась кнопка одразу, по типу натиснусти на старт
     public static final String COMMAND_NAME = "/start";
     public static final String GREETINGS_TEXT = "Ласкаво просимо. Цей бот допоможе відслідковувати актуальні курси валют";
     private static final String BUTTON_TEXT = "Почати";

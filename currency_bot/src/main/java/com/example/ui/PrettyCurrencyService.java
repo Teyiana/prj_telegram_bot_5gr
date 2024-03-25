@@ -6,17 +6,11 @@ import java.math.BigDecimal;
 
 public class PrettyCurrencyService {
 
+    // можливо потрібно зробити в цьому класі Enum
+    // TODO:
     // priz = 0 - 1 строка message
     // priz = 1 - 3 строка message (продаж)
     // priz = 2 - 2 строка message (купівля)
-
-    // bankId = 1 - Приватбанк
-    // bankId = 2 - НБУ
-    // bankId = 3 - Монобанк
-
-    // prettyId = 2 - кількість знаків після коми
-    // prettyId = 3
-    // prettyId = 4
 
 
     private BigDecimal roundedRate;
