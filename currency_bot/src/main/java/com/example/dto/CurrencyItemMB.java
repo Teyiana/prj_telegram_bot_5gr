@@ -2,9 +2,7 @@ package com.example.dto;
 
 public class CurrencyItemMB {
     private int currencyCodeA;
-    // !useless field!
-    // TODO:
-    // private int currencyCodeB;
+    private int currencyCodeB;
     private float rateBuy;
     private float rateSell;
 

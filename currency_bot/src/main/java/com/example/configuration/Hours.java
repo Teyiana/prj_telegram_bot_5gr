@@ -16,8 +16,7 @@ public enum Hours {
         return hour;
     }
 
-    // TODO:
-    // Для чого цей метод
+    // TODO: Для чого цей метод
     public static Hours forValue(String value) {
         for (Hours h : values()) {
             if (h.hour.equals(value)) {

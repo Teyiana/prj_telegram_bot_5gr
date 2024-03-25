@@ -19,8 +19,7 @@ public class NotificationScheduler implements SendCommand {
 
     private final Timer timer;
 
-    // передавався параметр String message
-    // TODO:
+    // TODO: передавався параметр String message
     public NotificationScheduler( ChatConfig chatConfig) {
 
         //this.message = message;
@@ -59,6 +58,7 @@ public class NotificationScheduler implements SendCommand {
         }, 0, 60 * 1000);
     }
 
+    // TODO: параметр не використовується
     public void execute(String chatId, String message, SendMessage.SendMessageBuilder builder) {
 
         CurrencyBotService botService = CurrencyBotService.getInstance();
@@ -77,7 +77,6 @@ public class NotificationScheduler implements SendCommand {
         timer.cancel();
     }
 
-    // TODO:
     @Override
     public BotApiMethod<?> execute(ChatConfig config, String message, Integer messageId) {
         return null;

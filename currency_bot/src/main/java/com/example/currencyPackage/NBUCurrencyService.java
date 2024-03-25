@@ -11,7 +11,7 @@ import java.util.List;
 
 public class NBUCurrencyService implements CurrencyService {
     @Override
-    public double getRateBuy(CurrencyBank currency, int priz) {
+    public double getRateBuy(CurrencyBank currency, int prize) {
         String url = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json";
         String json;
 
@@ -37,7 +37,7 @@ public class NBUCurrencyService implements CurrencyService {
 
         // Find UAH/USD
         double result = 0.0;
-        if (priz == 2) {
+        if (prize == 2) {
             result = currencyItems.stream()
                     .filter(it -> it.getCc() == currency)
                     .map(CurrencyItemNBU::getRate)
