@@ -10,10 +10,6 @@ public class CurrencyRates implements Cloneable {
     private double sellRate;
     private double buyRate;
 
-    public Banks getBank() {
-        return bank;
-    }
-
     public void setBank(Banks bank) {
         this.bank = bank;
     }

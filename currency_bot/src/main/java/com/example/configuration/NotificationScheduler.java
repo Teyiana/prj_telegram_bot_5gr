@@ -14,21 +14,14 @@ import java.util.TimerTask;
 
 public class NotificationScheduler implements SendCommand {
     private final ChatConfig chatConfig ;
-
-    private String message;
-
     private final Timer timer;
 
-    public NotificationScheduler( ChatConfig chatConfig, String message) {
-
-        this.message = message;
+    public NotificationScheduler(ChatConfig chatConfig) {
 
         this.chatConfig = chatConfig;
         this.timer = new Timer();
 
     }
-
-
 
     public void startScheduler( ) {
 
@@ -41,7 +34,7 @@ public class NotificationScheduler implements SendCommand {
 
                 if( !StringUtils.isNumeric(chatConfig.getSelectedHour().getHour())){
                     stopScheduler();
-                    execute(chatConfig.getChatId(),"Сповіщення вимкнунто", SendMessage.builder() );
+                    execute(chatConfig.getChatId(),"Сповіщення вимкнуто", SendMessage.builder() );
                 }else {
                     if (currentTime.getHour() == Integer.parseInt(chatConfig.getSelectedHour().getHour())
                             && currentTime.getMinute() == 0) {
@@ -57,6 +50,7 @@ public class NotificationScheduler implements SendCommand {
         }, 0, 60 * 1000);
     }
 
+    // TODO: параметр не використовується
     public void execute(String chatId, String message, SendMessage.SendMessageBuilder builder) {
 
         CurrencyBotService botService = CurrencyBotService.getInstance();

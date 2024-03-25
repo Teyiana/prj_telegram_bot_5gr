@@ -1,8 +1,6 @@
 package com.example.commands;
 
-import com.example.configuration.ChatConfig;
-import com.example.configuration.ConfigManager;
-import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
+
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
 public interface SendCommand extends Command{

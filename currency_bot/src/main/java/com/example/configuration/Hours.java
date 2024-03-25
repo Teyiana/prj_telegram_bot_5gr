@@ -15,13 +15,4 @@ public enum Hours {
     public String getHour() {
         return hour;
     }
-
-    public static Hours forValue(String value) {
-        for (Hours h : values()) {
-            if (h.hour.equals(value)) {
-                return h;
-            }
-        }
-        throw new EnumConstantNotPresentException(Hours.class, String.format("Enum value for %s not found!", value));
-    }
 }

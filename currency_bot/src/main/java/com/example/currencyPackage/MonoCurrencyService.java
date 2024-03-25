@@ -11,7 +11,7 @@ import java.util.List;
 
 public class MonoCurrencyService implements CurrencyService {
     @Override
-    public double getRateBuy(CurrencyBank currency, int priz) {
+    public double getRateBuy(CurrencyBank currency, int prize) {
         String url = "https://api.monobank.ua/bank/currency";
         String json;
 
@@ -38,7 +38,7 @@ public class MonoCurrencyService implements CurrencyService {
         // Find UAH/USD    Currency.valueOf(code)
         double result = 0.0;
 
-        if (priz == 2) {
+        if (prize == 2) {
             result = currencyItems.stream()
                     .filter(it -> it.getCurrencyCodeA() == currency.getCurrencyCode())
                     .map(CurrencyItemMB::getRateBuy)

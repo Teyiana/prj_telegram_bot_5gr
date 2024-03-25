@@ -35,7 +35,7 @@ public class MessageTimeSetCommand implements EditCommand {
         }
         builder.text(BUTTON_TEXT);
         builder.replyMarkup(InlineKeyboardMarkup.builder().keyboard(getKeyboard(config)).build());
-        NotificationScheduler notificationScheduler = new NotificationScheduler(config,message);
+        NotificationScheduler notificationScheduler = new NotificationScheduler(config);
         notificationScheduler.startScheduler();
         return builder.build();
     }

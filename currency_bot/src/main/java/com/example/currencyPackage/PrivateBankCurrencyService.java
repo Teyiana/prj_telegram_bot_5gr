@@ -11,7 +11,7 @@ import java.util.List;
 
 public class PrivateBankCurrencyService  implements CurrencyService {
     @Override
-    public double getRateBuy(CurrencyBank currency, int priz) {
+    public double getRateBuy(CurrencyBank currency, int prize) {
 
         String url = "https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5";
         String json;
@@ -38,7 +38,7 @@ public class PrivateBankCurrencyService  implements CurrencyService {
 
         // Find UAH/USD
         double result = 0.0;
-        if (priz == 2) {
+        if (prize == 2) {
             result = currencyItems.stream()
                     .filter(it -> it.getCcy() == currency)
                     .filter(it -> it.getBase_ccy() == CurrencyBank.UAH)
