@@ -1,7 +1,7 @@
 package com.example.commands.settings;
 
 import com.example.commands.SendCommand;
-import com.example.commands.SettingsCommand;
+//import com.example.commands.SettingsCommand;
 import com.example.commands.settings.set.DigitCountSetCommand;
 import com.example.configuration.ChatConfig;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
@@ -9,7 +9,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
