@@ -43,8 +43,8 @@ public class NotificationScheduler implements SendCommand {
                     stopScheduler();
                     execute(chatConfig.getChatId(),"Сповіщення вимкнене", SendMessage.builder() );
                 }else {
-                    if (17 == Integer.parseInt(chatConfig.getSelectedHour().getHour())
-                            && 0 == 0) {
+                    if (currentTime.getHour() == Integer.parseInt(chatConfig.getSelectedHour().getHour())
+                            && currentTime.getMinute() == 0) {
                         GetInfoCommand getInfoCommand = new GetInfoCommand();
 
                         try {
