@@ -10,37 +10,12 @@ public class CurrencyItemMB {
         return currencyCodeA;
     }
 
-    // useless method
-//    public void setCurrencyCodeA(int currencyCodeA) {
-//        this.currencyCodeA = currencyCodeA;
-//    }
-
-    // useless method
-//    public int getCurrencyCodeB() {
-//        return currencyCodeB;
-//    }
-
-    // useless method
-//    public void setCurrencyCodeB(int currencyCodeB) {
-//        this.currencyCodeB = currencyCodeB;
-//    }
-
     public float getRateBuy() {
         return rateBuy;
     }
 
-    // useless method
-//    public void setRateBuy(float rateBuy) {
-//        this.rateBuy = rateBuy;
-//    }
-
     public float getRateSell() {
         return rateSell;
     }
-
-    // useless method
-//    public void setRateSell(float rateSell) {
-//        this.rateSell = rateSell;
-//    }
 }
 

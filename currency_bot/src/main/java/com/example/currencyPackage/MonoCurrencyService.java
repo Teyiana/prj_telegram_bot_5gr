@@ -10,7 +10,6 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 public class MonoCurrencyService implements CurrencyService {
-    // Змінив priz на prize
     @Override
     public double getRateBuy(CurrencyBank currency, int prize) {
         String url = "https://api.monobank.ua/bank/currency";

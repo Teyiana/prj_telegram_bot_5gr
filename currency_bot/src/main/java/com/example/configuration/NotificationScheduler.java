@@ -14,22 +14,14 @@ import java.util.TimerTask;
 
 public class NotificationScheduler implements SendCommand {
     private final ChatConfig chatConfig ;
-
-    //private String message;
-
     private final Timer timer;
 
-    // TODO: передавався параметр String message
-    public NotificationScheduler( ChatConfig chatConfig) {
-
-        //this.message = message;
+    public NotificationScheduler(ChatConfig chatConfig) {
 
         this.chatConfig = chatConfig;
         this.timer = new Timer();
 
     }
-
-
 
     public void startScheduler( ) {
 

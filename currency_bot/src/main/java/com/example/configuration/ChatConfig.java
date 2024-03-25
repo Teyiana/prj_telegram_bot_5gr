@@ -43,10 +43,6 @@ public class ChatConfig {
         return selectedCurrencies;
     }
 
-    // useless method
-//    public void setSelectedCurrencies(List<Currencies> selectedCurrencies) {
-//        this.selectedCurrencies = selectedCurrencies;
-//    }
 
     public Banks getSelectedBank() {
         return selectedBank;

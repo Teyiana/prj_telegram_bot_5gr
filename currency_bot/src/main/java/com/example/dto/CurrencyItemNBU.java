@@ -10,17 +10,8 @@ public class CurrencyItemNBU {
         return cc;
     }
 
-    // useless method
-//    public void setCc(CurrencyBank cc) {
-//        this.cc = cc;
-//    }
-
     public float getRate() {
         return rate;
     }
 
-    // useless method
-//    public void setRate(float rate) {
-//        this.rate = rate;
-//    }
 }
