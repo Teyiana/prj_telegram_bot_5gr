@@ -3,13 +3,13 @@ package com.example.commands;
 import com.example.configuration.ChatConfig;
 import com.example.currencyPackage.BankService;
 import com.example.currencyPackage.CurrencyRates;
-import com.example.ui.PrettyCurrencyService;
+//import com.example.ui.PrettyCurrencyService;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
+//import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.Collections;
 import java.util.List;
